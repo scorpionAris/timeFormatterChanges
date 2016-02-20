@@ -1,0 +1,13 @@
+// 解析发布日期
+    // 1.先获取服务器存储的时间戳字符串
+    NSString *strTime = [commentDic valueForKey:@"time"];
+    // 2.将string对象转换成NSTimeInterval类型
+    NSTimeInterval time = [strTime integerValue];
+    // 3.将NSTimeInterval对象转换成date对象
+    NSDate *publishTime = [NSDate dateWithTimeIntervalSince1970:time];
+    // 4.通过创建NSDateFormatter设置显示出来日期的格式
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    // 5.将日期转换成字符串
+    NSString *date = [formatter stringFromDate:publishTime];
+    
